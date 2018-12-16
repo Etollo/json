@@ -16,32 +16,42 @@ request.onload = function() {
 };
 function bodyUl(typeA) {
     var myUl = document.createElement('ul');
-    myUl.textContent = typeA.children;
+    myUl.textContent = typeA.title;
     header.appendChild(myUl);
 
-    var myLi = document.createElement('li');
-    myLi.textContent = typeA.k1;
-    header.appendChild(myLi);
 }
-function showTree(typeA) {
-    var trees = typeA.title;
+ function showTree(typeA) {
 
-    for (var i = 0; i < trees.length; i++) {
-        var myArticle = document.createElement('article');
-        var myList = document.createElement('ul');
-        var myH2 = document.createElement('h2');
+    var trees = typeA.children;
+    for (var i = 0; i < trees.length; i++){
+        var myLi = document.createElement('ul');
 
-        myH2.textContent = trees[i].children;
-
-        var superK1 = trees[i].children;
-        for (var j = 0; j < superK1.length; j++){
+        var childrenK1 = trees[i].k1;
+        for (var j = 0; j < childrenK1.length; j++){
             var listItem = document.createElement('li');
-            listItem.textContent = superK1[j];
-            myList.appendChild(listItem);
+            listItem.textContent = childrenK1[j];
+            myLi.appendChild(listItem);
         }
-        myArticle.appendChild(myH2);
-        myArticle.appendChild(myList);
-        
-        section.appendChild(myArticle);
+        header.appendChild(myLi);
     }
-}
+//     var trees = typeA.children;
+
+//     for (var i = 0; i < trees.length; i++) {
+//         var myArticle = document.createElement('article');
+//         var myList = document.createElement('li');
+//         var myH2 = document.createElement('h2');
+
+//         myH2.textContent = trees[i].children;
+
+//         var superK1 = trees[i].children;
+//         for (var j = 0; j < superK1.length; j++){
+//             var listItem = document.createElement('li');
+//             listItem.textContent = superK1[j];
+//             myList.appendChild(listItem);
+//         }
+//         myArticle.appendChild(myH2);
+//         myArticle.appendChild(myList);
+        
+//         section.appendChild(myArticle);
+//     }
+ }
