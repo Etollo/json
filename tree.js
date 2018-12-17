@@ -13,7 +13,6 @@ request.onload = function() {
     var treeBaseText = request.response;
     bodyUl(treeBaseText);
     showTree(treeBaseText);
-    tree_toggle(treeBaseText);
 };
 function bodyUl(typeA) {
     var myUl = document.createElement('ul');
@@ -21,6 +20,7 @@ function bodyUl(typeA) {
     header.appendChild(myUl);
     
 }
+    
  function showTree(typeA) {
     var trees = typeA.children;
     
@@ -35,24 +35,23 @@ function bodyUl(typeA) {
         var childrenK1 = trees[i].k1;
         for (var j = 0; j < childrenK1.length; j++){
             var listItem = document.createElement('li');
-            
-
-            listItem.textContent = childrenK1[j];
+            var span = document.createElement('span');
+            span.classList.add('caret');
+            span.textContent = childrenK1[j];
+            listItem.appendChild(span);
             myLi.appendChild(listItem);
-
             
-            //listItem.classList.add('caret');
         }
         header.appendChild(myLi);
-        
     }
  }
- var toggler = document.getElementsByClassName("caret");
  
- for (var i = 0; i < toggler.length; i++) {
-   toggler[i].addEventListener("click", function() {
-     this.parentElement.querySelector(".nested").classList.toggle("active");
-     this.classList.toggle("caret-down");
-   });
- }
- 
+var toggler = document.getElementsByClassName("caret");
+    
+for (var i = 0; i < toggler.length; i++) {
+    toggler[i].addEventListener("click", function() {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("caret-down");
+    });
+}
+

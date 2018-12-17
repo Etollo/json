@@ -1,5 +1,5 @@
 /* Remove default bullets */
-ul, #myUL {
+ul {
   list-style-type: none;
 }
 
@@ -30,7 +30,7 @@ ul, #myUL {
 
 /* Hide the nested list */
 .nested {
-  display: none;
+  display: block;
 }
 
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
