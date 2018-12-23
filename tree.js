@@ -3,10 +3,6 @@ var header = document.querySelector('header');
 var iframeset = document.querySelector('iframeset');
 //var body = document.querySelector('body');
 
-var iframe = document.getElementsByTagName('iframe')[0];
-
-var iframeDoc = iframe.contentWindow.document;
-
 var requestURL = 'https://etollo.github.io/json/treeBase.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);
@@ -24,12 +20,14 @@ function bodyUl(typeA) {
     var myUl = document.createElement('ul');
     myUl.textContent = typeA.title;
     header.appendChild(myUl);
-    myUl.id = "myUL";
+    myUl.classList.add('Container');
+    //myUl.id = "myUL";
 }
-function frameset(typeA) {
-    var frame = document.createElement('frame');
-    frame.appendChild(srcElement)
-}
+
+// function frameset(typeA) {
+//     var frame = document.createElement('frame');
+//     frame.appendChild(srcElement);
+// }
 function showTree(typeA) {
     var trees = typeA.children;
     
@@ -37,15 +35,37 @@ function showTree(typeA) {
         var myLi = document.createElement('ul');
 
         
-        myLi.classList.add('nested');
+        myLi.classList.add('Container');
 
         myLi.textContent = trees[i].name;
 
         var childrenK1 = trees[i].k1;
         for (var j = 0; j < childrenK1.length; j++){
             var listItem = document.createElement('li');
-            var span = document.createElement('span');
-            span.classList.add('caret');
+            listItem.textContent = childrenK1[j].sedan;
+            listItem.textContent = childrenK1[j].hetch;
+            listItem.textContent = childrenK1[j].jeep;
+            listItem.textContent = childrenK1[j].universal;
+
+            var sedanK1 = childrenK1[j].k1;
+            // for (var k = 0; k < sedanK1.length; k++){
+            //     var info = document.createElement('ul');
+            //     info.textContent = sedanK1[k].k1;
+            //     listItem.appendChild(info);
+            // }
+            var a = document.createElement('a');
+
+            listItem.classList.add('Node');
+            listItem.classList.add('IsRoot');
+            listItem.classList.add('ExpandOpen');
+
+            
+            var div = document.createElement('div');
+            div.classList.add('Expand');
+            listItem.appendChild(div);
+
+            var span = document.createElement('div');
+            span.classList.add('Content');
             span.textContent = childrenK1[j];
             listItem.appendChild(span);
             myLi.appendChild(listItem);
@@ -72,7 +92,7 @@ function showTree(typeA) {
 	var newClass = hasClass(node, 'ExpandOpen') ? 'ExpandClosed' : 'ExpandOpen';
 	// заменить текущий класс на newClass
 	// регексп находит отдельно стоящий open|close и меняет на newClass
-	var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/
+	var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/;
 	node.className = node.className.replace(re, '$1'+newClass+'$3');
 }
 
