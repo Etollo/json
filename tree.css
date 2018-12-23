@@ -1,39 +1,71 @@
-/* Remove default bullets */
-ul, #myUL {
-  list-style-type: none;
+.Container {
+	padding: 0;
+	margin: 0;
 }
 
-/* Remove margins and padding from the parent ul */
-#myUL {
-  margin: 0;
-  padding: 0;
+.Container li {
+	list-style-type: none;
 }
 
-/* Style the caret/arrow */
-.caret {
-  cursor: pointer; 
-  user-select: none; /* Prevent text selection */
+/* indent for all tree children excepts root */
+.Node {
+    margin-left: 18px;
+    zoom: 1;
+
 }
 
-/* Create the caret/arrow with a unicode, and style it */
-.caret::before {
-  content: "\25B6";
-  color: black;
-  display: inline-block;
-  margin-right: 6px;
+.IsRoot {
+    margin-left: 0;
+}
+ 
+.ExpandOpen .Expand {
+    background-image: url(img/minus.gif);
+}
+ 
+/* closed is higher priority than open */
+.ExpandClosed .Expand {
+    background-image: url(img/plus.gif);
+}
+ 
+/* highest priority */
+.ExpandLeaf .Expand {
+    background-image: url(img/leaf.gif);
 }
 
-/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-.caret-down::before {
-  transform: rotate(90deg); 
+.Content {
+    min-height: 18px;
+    margin-left:18px;
+}
+* html  .Content {
+    height: 18px;
 }
 
-/* Hide the nested list */
-.nested {
-  display: block;
+
+.ExpandLoading   {
+    width: 18px;
+    height: 18px;
+    float: left;
+    background-image: url(img/loading.gif);
 }
 
-/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
-.active {
-  display: block;
+.Expand {
+    width: 18px;
+    height: 18px;
+    float: left;
+}
+
+
+.ExpandOpen .Container {
+        display: block;
+}
+
+.ExpandClosed .Container {
+        display: none;
+}
+
+.ExpandOpen .Expand, .ExpandClosed .Expand {
+        cursor: pointer;
+}
+.ExpandLeaf .Expand {
+        cursor: auto;
 }
