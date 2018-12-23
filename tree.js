@@ -1,7 +1,11 @@
 
 var header = document.querySelector('header');
-var section = document.querySelector('section');
+var iframeset = document.querySelector('iframeset');
 //var body = document.querySelector('body');
+
+var iframe = document.getElementsByTagName('iframe')[0];
+
+var iframeDoc = iframe.contentWindow.document;
 
 var requestURL = 'https://etollo.github.io/json/treeBase.json';
 var request = new XMLHttpRequest();
@@ -22,8 +26,11 @@ function bodyUl(typeA) {
     header.appendChild(myUl);
     myUl.id = "myUL";
 }
-    
- function showTree(typeA) {
+function frameset(typeA) {
+    var frame = document.createElement('frame');
+    frame.appendChild(srcElement)
+}
+function showTree(typeA) {
     var trees = typeA.children;
     
     for (var i = 0; i < trees.length; i++){
