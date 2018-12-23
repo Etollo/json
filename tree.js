@@ -11,31 +11,32 @@ request.send();
 
 request.onload = function() {
     var treeBaseText = request.response;
-    bodyUl(treeBaseText);
+
     showTree(treeBaseText);
     tree_toggle(treeBaseText);
     hasClass(treeBaseText);
 };
-function bodyUl(typeA) {
-    var myUl = document.createElement('ul');
-    myUl.textContent = typeA.title;
-    header.appendChild(myUl);
-    myUl.classList.add('Container');
-    //myUl.id = "myUL";
-}
+// function bodyUl(typeA) {
+    
+//     myUl.classList.add('Container');
+//     //myUl.id = "myUL";
+// }
 
 // function frameset(typeA) {
 //     var frame = document.createElement('frame');
 //     frame.appendChild(srcElement);
 // }
 function showTree(typeA) {
+    var myUl = document.createElement('ul');
+    myUl.textContent = typeA.title;
+    header.appendChild(myUl);
     var trees = typeA.children;
-    
+    myUl.classList.add('Container');
     for (var i = 0; i < trees.length; i++){
         var myLi = document.createElement('ul');
 
         
-        myLi.classList.add('Container');
+        myLi.classList.add('ContainerInside');
 
         myLi.textContent = trees[i].name;
 
@@ -43,16 +44,13 @@ function showTree(typeA) {
         for (var j = 0; j < childrenK1.length; j++){
             var listItem = document.createElement('li');
             listItem.textContent = childrenK1[j].sedan;
-            listItem.textContent = childrenK1[j].hetch;
-            listItem.textContent = childrenK1[j].jeep;
-            listItem.textContent = childrenK1[j].universal;
 
-            var sedanK1 = childrenK1[j].k1;
-            // for (var k = 0; k < sedanK1.length; k++){
-            //     var info = document.createElement('ul');
-            //     info.textContent = sedanK1[k].k1;
-            //     listItem.appendChild(info);
-            // }
+            var sedan = childrenK1[j].k1;
+            for (var k = 0; k < sedan.length; k++){
+                var info = document.createElement('ul');
+                info.textContent = sedan[k];
+                listItem.appendChild(info);
+            }
             var a = document.createElement('a');
 
             listItem.classList.add('Node');
@@ -69,8 +67,8 @@ function showTree(typeA) {
             span.textContent = childrenK1[j];
             listItem.appendChild(span);
             myLi.appendChild(listItem);
-            
         }
+        
         header.appendChild(myLi);
     }
  }
