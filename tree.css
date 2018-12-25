@@ -21,20 +21,20 @@
 .IsRoot {
     margin-left: 0;
 }
- 
+/*  
 .ExpandOpen .Expand {
     background-image: url(img/minus.gif);
-}
+} */
  
 /* closed is higher priority than open */
-.ExpandClosed .Expand {
+/* .ExpandClosed .Expand {
     background-image: url(img/plus.gif);
-}
+} */
  
 /* highest priority */
-.ExpandLeaf .Expand {
+/* .ExpandLeaf .Expand {
     background-image: url(img/leaf.gif);
-}
+} */
 
 .Content {
     min-height: 18px;

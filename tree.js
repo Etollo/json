@@ -35,8 +35,9 @@ function showTree(typeA) {
         for (var j = 0; j < childrenK1.length; j++){
             var listItem = document.createElement('li');
             // Обрабатывает объект sedan 
-            listItem.textContent = childrenK1[j].sedan;
+            
             var sedan = childrenK1[j].k1;
+            listItem.textContent = childrenK1[j].sedan;
             // Обрабатывает массив k1 
             for (var k = 0; k < sedan.length; k++){
                 var info = document.createElement('ul');
@@ -49,14 +50,14 @@ function showTree(typeA) {
 
             // listItem.classList.add('Node');
             // listItem.classList.add('IsRoot');
-            listItem.classList.add('ExpandOpen');
+            //listItem.classList.add('ExpandOpen');
 
             var div = document.createElement('div');
-            div.classList.add('Expand');
+            //div.classList.add('Expand');
             listItem.appendChild(div);
 
             var span = document.createElement('div');
-            span.classList.add('Content');
+            //span.classList.add('Content');
             span.textContent = childrenK1[j];
             listItem.appendChild(span);
             myLi.appendChild(listItem);
