@@ -38,10 +38,13 @@ function showTree(typeA) {
             terdUl.appendChild(listItem);
 
             var a = document.createElement('a');
+            a.id = "a";
             listItem.appendChild(a);
             a.textContent = childrenK1[j].sedan;
-    
+
+            
             myLi.appendChild(terdUl);
+            
         }
         firstLi.appendChild(secondUl);
         body.appendChild(myUl);
