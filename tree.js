@@ -18,102 +18,67 @@ request.onload = function() {
 };
 function showTree(typeA) {
     var myUl = document.createElement('ul');
-    myUl.textContent = typeA.title;
+    var firstLi = document.createElement('li');
+
+    firstLi.textContent = typeA.title;
+    myUl.appendChild(firstLi);
     header.appendChild(myUl);
     var trees = typeA.children;
     myUl.classList.add('Container');
-
+    var secondUl = document.createElement('ul');
     for (var i = 0; i < trees.length; i++){
-        var myLi = document.createElement('ul');
-
-        // myLi.classList.add('ContainerInside');
-
-        myLi.textContent = trees[i].name;
-        myUl.appendChild(myLi);
-        var childrenK1 = trees[i].k1;
-
-        for (var j = 0; j < childrenK1.length; j++){
-            var listItem = document.createElement('li');
-            // Обрабатывает объект sedan 
-            listItem.textContent = childrenK1[j].sedan;
-            var sedan = childrenK1[j].k1;
-            // Обрабатывает массив k1 
-            for (var k = 0; k < sedan.length; k++){
-                var info = document.createElement('ul');
-                listItem.appendChild(info);
-                info.textContent = sedan[k];
-                
-            }
-            
-            var a = document.createElement('a');
-            listItem.appendChild(a);
-            // listItem.classList.add('Node');
-            // listItem.classList.add('IsRoot');
-            //listItem.classList.add('ExpandOpen');
-
-            var div = document.createElement('div');
-            //div.classList.add('Expand');
-            listItem.appendChild(div);
-
-            var span = document.createElement('div');
-            //span.classList.add('Content');
-            span.textContent = childrenK1[j];
-            listItem.appendChild(span);
-            myLi.appendChild(listItem);
-        }
         
-        header.appendChild(myLi);
+        var myLi = document.createElement('li');
+        secondUl.appendChild(myLi);
+        myLi.textContent = trees[i].name;
+        
+        var childrenK1 = trees[i].k1;
+        var terdUl = document.createElement('ul');
+        for (var j = 0; j < childrenK1.length; j++){
+            
+            var listItem = document.createElement('li');
+            terdUl.appendChild(listItem);
+
+            // listItem.classList.add('Container');
+            var a = document.createElement('a');
+            
+            listItem.appendChild(a);
+            // Обрабатывает объект sedan 
+            a.textContent = childrenK1[j].sedan;
+    
+            myLi.appendChild(terdUl);
+        }
+        firstLi.appendChild(secondUl);
+        header.appendChild(myUl);
+       
     }
  }
- function tree_toggle(event) {
+ function tree_toggle() {
     var tree = document.getElementsByTagName('ul')[0];
 
     var treeLis = tree.getElementsByTagName('li');
 
     /* wrap all textNodes into spans */
     for (var i = 0; i < treeLis.length; i++) {
-      var li = treeLis[i];
-
-      var span = document.createElement('span');
-      li.insertBefore(span, li.firstChild);
-      span.appendChild(span.nextSibling);
+        var li = treeLis[i];
+        
+        var span = document.createElement('span');
+        li.insertBefore(span, li.firstChild);
+        span.appendChild(span.nextSibling);
     }
-
     /* catch clicks on whole tree */
     tree.onclick = function(event) {
-      var target = event.target;
+        var target = event.target;
 
-      if (target.tagName != 'SPAN') {
-        return;
-      }
+        if (target.tagName != 'SPAN') {
+            return;
+        }
+        /* now we know the SPAN is clicked */
+        var childrenContainer = target.parentNode.getElementsByTagName('ul')[0];
+        if (!childrenContainer) return; // no children
 
-      /* now we know the SPAN is clicked */
-      var childrenContainer = target.parentNode.getElementsByTagName('ul')[0];
-      if (!childrenContainer) return; // no children
-
-      childrenContainer.hidden = !childrenContainer.hidden;
-    }
-	// event = event || window.event;
-	// var clickedElem = event.target || event.srcElement;
-
-	// if (!hasClass(clickedElem, 'Conteiner')) {
-	// 	return; // клик не там
-	// }
-	// // Node, на который кликнули
-	// var node = clickedElem.parentNode;
-	// if (hasClass(node, 'Conteiner')) {
-	// 	return; // клик на листе
-	// }
-	// // определить новый класс для узла
-	// var newClass = hasClass(node, 'ExpandOpen') ? 'ExpandClosed' : 'ExpandOpen';
-	// // заменить текущий класс на newClass
-	// // регексп находит отдельно стоящий open|close и меняет на newClass
-	// var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/;
-	// node.className = node.className.replace(re, '$1'+newClass+'$3');
-}
-
-function hasClass(elem, className) {
-	return new RegExp("(^|\\s)"+className+"(\\s|$)").test(elem.className);
-}
+        childrenContainer.hidden = !childrenContainer.hidden;
+    };
+ }
 
 
