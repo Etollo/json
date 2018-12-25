@@ -2,33 +2,36 @@
     "title": "Автосалон", 
     "children": [
         {
-            "name": "Легковые",
+            "name": "TOYOTA",
             "k1": [ 
                 {
-                    "sedan" : "Седаны"
+                    "sedan" : "Camry"
                 },
                 {
-                    "sedan" : "Хетчбэк"
+                    "sedan" : "Land Cruiser Prado"
                 },
                 {
-                    "sedan" : "Джип"
+                    "sedan" : "Land Cruser 200"
                 },
                 {
-                    "sedan" : "Универсал"
+                    "sedan" : "Prius"
                 }
             ]
         },
         {
-            "name": "Грузовые",
+            "name": "LEXUS",
             "k1": [
                 {
-                    "sedan" : "Тягач"
+                    "sedan" : "RX"
                 },
                 {
-                    "sedan" : "Бортовой"
+                    "sedan" : "LX"
                 },
                 {
-                    "sedan" : "Фургон"
+                    "sedan" : "LS"
+                },
+                {
+                    "sedan" : "ES"
                 }
             ]
         }

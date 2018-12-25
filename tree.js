@@ -1,7 +1,5 @@
 
-var header = document.querySelector('header');
-var iframeset = document.querySelector('iframeset');
-//var body = document.querySelector('body');
+var body = document.querySelector('body');
 
 var requestURL = 'https://etollo.github.io/json/treeBase.json';
 var request = new XMLHttpRequest();
@@ -22,7 +20,7 @@ function showTree(typeA) {
 
     firstLi.textContent = typeA.title;
     myUl.appendChild(firstLi);
-    header.appendChild(myUl);
+    body.appendChild(myUl);
     var trees = typeA.children;
     myUl.classList.add('Container');
     var secondUl = document.createElement('ul');
@@ -39,18 +37,14 @@ function showTree(typeA) {
             var listItem = document.createElement('li');
             terdUl.appendChild(listItem);
 
-            // listItem.classList.add('Container');
             var a = document.createElement('a');
-            
             listItem.appendChild(a);
-            // Обрабатывает объект sedan 
             a.textContent = childrenK1[j].sedan;
     
             myLi.appendChild(terdUl);
         }
         firstLi.appendChild(secondUl);
-        header.appendChild(myUl);
-       
+        body.appendChild(myUl);
     }
  }
  function tree_toggle() {
@@ -58,7 +52,6 @@ function showTree(typeA) {
 
     var treeLis = tree.getElementsByTagName('li');
 
-    /* wrap all textNodes into spans */
     for (var i = 0; i < treeLis.length; i++) {
         var li = treeLis[i];
         
@@ -66,16 +59,14 @@ function showTree(typeA) {
         li.insertBefore(span, li.firstChild);
         span.appendChild(span.nextSibling);
     }
-    /* catch clicks on whole tree */
     tree.onclick = function(event) {
         var target = event.target;
 
         if (target.tagName != 'SPAN') {
             return;
         }
-        /* now we know the SPAN is clicked */
         var childrenContainer = target.parentNode.getElementsByTagName('ul')[0];
-        if (!childrenContainer) return; // no children
+        if (!childrenContainer) return; 
 
         childrenContainer.hidden = !childrenContainer.hidden;
     };
