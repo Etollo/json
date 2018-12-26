@@ -13,6 +13,7 @@ request.onload = function() {
     showTree(treeBaseText);
     tree_toggle(treeBaseText);
     hasClass(treeBaseText);
+    openbox(treeBaseText);
 };
 function showTree(typeA) {
     var myUl = document.createElement('ul');
@@ -39,7 +40,8 @@ function showTree(typeA) {
 
 
             var a = document.createElement('a');
-            a.id = "a";
+            a.myNode = childrenK1[j]
+            
             listItem.appendChild(a);
             a.textContent = childrenK1[j].sedan;
 
@@ -71,19 +73,26 @@ function showTree(typeA) {
     tree.onclick = function(event) {
         var target = event.target;
 
-        if (target.tagName != 'SPAN') {
+        if (target.tagName == 'SPAN') {
+            var childrenContainer = target.parentNode.getElementsByTagName('ul')[0];
+            if (!childrenContainer) return; 
+    
+            childrenContainer.hidden = !childrenContainer.hidden;
             return;
         }
-        var childrenContainer = target.parentNode.getElementsByTagName('ul')[0];
-        if (!childrenContainer) return; 
+        else if (target.tagName == 'A') {
+            document.getElementById('xxx').innerHTML = target.myNode.text
+        }
+        /*var textNode = target.getElementById('a');
+        if (!textNode) return;
 
-        childrenContainer.hidden = !childrenContainer.hidden;
+        display = document.getElementById('a').style.display;
+        if(display=='none'){
+            document.getElementById('a').style.display='block';
+        }else{
+            document.getElementById('a').style.display='none';
+        }*/
     };
-    aName.onclick = function(event) {
-        var target = event.target;
-
-
-    };
- }
+}
 
 
