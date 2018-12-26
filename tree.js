@@ -16,6 +16,8 @@ request.onload = function() {
     openbox(treeBaseText);
 };
 function showTree(typeA) {
+    // var divName = document.createElement('div');
+    // divName.id = "body";
     var myUl = document.createElement('ul');
     var firstLi = document.createElement('li');
 
@@ -40,15 +42,11 @@ function showTree(typeA) {
 
 
             var a = document.createElement('a');
-            a.myNode = childrenK1[j]
+            a.myNode = childrenK1[j];
             
             listItem.appendChild(a);
             a.textContent = childrenK1[j].sedan;
-
-            var div = document.createElement('div');
-            listItem.appendChild(div);
-            div.innerHTML = childrenK1[j].text;
-            //div.hidden = true;
+            
             
             myLi.appendChild(terdUl);
             
@@ -81,17 +79,8 @@ function showTree(typeA) {
             return;
         }
         else if (target.tagName == 'A') {
-            document.getElementById('xxx').innerHTML = target.myNode.text
+            document.getElementById('xxx').innerHTML = target.myNode.text;
         }
-        /*var textNode = target.getElementById('a');
-        if (!textNode) return;
-
-        display = document.getElementById('a').style.display;
-        if(display=='none'){
-            document.getElementById('a').style.display='block';
-        }else{
-            document.getElementById('a').style.display='none';
-        }*/
     };
 }
 

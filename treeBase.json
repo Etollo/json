@@ -6,19 +6,23 @@
             "k1": [ 
                 {
                     "sedan" : "Camry",
-                    "text" : "Camry представитель автомобилистроения"
+                    "text" : "Camry представитель автомобилистроения",
+                    "image" : "6.png"
                 },
                 {
                     "sedan" : "Land Cruiser Prado",
-                    "text" : "Land Cruiser Prado представитель автомобилистроения"
+                    "text" : "Land Cruiser Prado представитель автомобилистроения",
+                    "image" : "3.png"
                 },
                 {
                     "sedan" : "Land Cruser 200",
-                    "text" : "Land Cruser 200 представитель автомобилистроения"
+                    "text" : "Land Cruser 200 представитель автомобилистроения",
+                    "image" : "2.png"
                 },
                 {
                     "sedan" : "Prius",
-                    "text" : "Prius представитель автомобилистроения"
+                    "text" : "Prius представитель автомобилистроения",
+                    "image" : "6.png"
                 }
             ]
         },
