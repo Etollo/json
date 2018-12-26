@@ -5,16 +5,20 @@
             "name": "TOYOTA",
             "k1": [ 
                 {
-                    "sedan" : "Camry"
+                    "sedan" : "Camry",
+                    "text" : "Прекрасны представитель автомобилистроения"
                 },
                 {
-                    "sedan" : "Land Cruiser Prado"
+                    "sedan" : "Land Cruiser Prado",
+                    "text" : "Прекрасны представитель автомобилистроения"
                 },
                 {
-                    "sedan" : "Land Cruser 200"
+                    "sedan" : "Land Cruser 200",
+                    "text" : "Прекрасны представитель автомобилистроения"
                 },
                 {
-                    "sedan" : "Prius"
+                    "sedan" : "Prius",
+                    "text" : "Прекрасны представитель автомобилистроения"
                 }
             ]
         },

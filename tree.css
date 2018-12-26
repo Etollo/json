@@ -1,3 +1,6 @@
+.cont{
+    display: grid;
+}
 .Container span:hover {
     font-size: 120%;
 }
