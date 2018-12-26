@@ -2,6 +2,9 @@ body {
     display: block;
     width: 1000px;
 }
+img {
+    width: 300px; 
+}
 #xxx {
     display: block;
     position: relative;

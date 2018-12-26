@@ -46,7 +46,7 @@ function showTree(typeA) {
             
             listItem.appendChild(a);
             a.textContent = childrenK1[j].sedan;
-            
+
             
             myLi.appendChild(terdUl);
             
@@ -80,6 +80,7 @@ function showTree(typeA) {
         }
         else if (target.tagName == 'A') {
             document.getElementById('xxx').innerHTML = target.myNode.text;
+            document.getElementById('xxx').innerHTML += '<img src="https://raw.githubusercontent.com/Etollo/json/master/'+ target.myNode.image+ '"> ';
         }
     };
 }
